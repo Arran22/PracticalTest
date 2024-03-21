@@ -2,6 +2,18 @@
 
 {% load staticfiles %}
 <html>
+<style>
+body {
+    background-color: black;
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.centredContent{
+    width: fit-content;
+    margin: auto;
+}
+</style>
+<div class="centredContent">
     <div>   
         <img src="{% static 'images/cat.png' %}"
         alt="Picture of Cat" />
@@ -14,8 +26,7 @@
         <ul>
             {% for people in peoples %}
                 <li>
-                    {{ people.first_name }} {{ people.last_name }} has <strong>{{ people.cat_set.all.count }}</strong>
-                    <!-- <cat>% if people.cat_set.all.count != 1 %</cat> -->
+                    {{ people.first_name }} {{ people.last_name }} has <strong>{{ people.cat_set.all.count }}</strong> cats
                     <ul>
                         {% for cat in people.cat_set.all|dictsort:'cat_name' %}
                             <li>{{ cat.cat_name }}</li>
@@ -29,4 +40,5 @@
     <div>
         <a href='http://localhost:8000/about'>About Pets of Students</a>
     </div>
+</div>
 </html>

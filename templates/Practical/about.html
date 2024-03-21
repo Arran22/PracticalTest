@@ -2,6 +2,18 @@
 
 {% load staticfiles %}
 <html>
+    <style>
+        body {
+            background-color: black;
+            color: azure;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .centredContent{
+            width: fit-content;
+            margin: auto;
+        }
+        </style>
+<div class="centredContent">
     <div>   
         <img src="{% static 'images/cats_with_fire.jpg' %}"
         alt="Picture of Cats with fire" />
@@ -23,4 +35,5 @@
     <div>
         Click to go back to <a href='http://localhost:8000/'>Home</a>
     </div>
+</div>
 </html>

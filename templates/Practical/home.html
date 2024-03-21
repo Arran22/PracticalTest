@@ -10,6 +10,23 @@
         <h1>The Students and their cats are: </h1>
     </div>
     <div>
+    {% if peoples %}
+        <ul>
+            {% for people in peoples %}
+                <li>
+                    {{ people.first_name }} {{ people.last_name }} has <strong>{{ people.cat_set.all.count }}</strong>
+                    <!-- <cat>% if people.cat_set.all.count != 1 %</cat> -->
+                    <ul>
+                        {% for cat in people.cat_set.all|dictsort:'cat_name' %}
+                            <li>{{ cat.cat_name }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div>
         <a href='http://localhost:8000/about'>About Pets of Students</a>
     </div>
 </html>

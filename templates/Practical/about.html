@@ -10,6 +10,17 @@
         <h1>All the cats are: </h1>
     </div>
     <div>
-        click to go back to <a href='http://localhost:8000/home'>Home</a>
+        {% if cats %}
+        <ul>
+            {% for cat in cats %}
+                <li>{{ cat.cat_name }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <strong>There are no cats in the cattery.</strong>
+        {% endif %}
+    </div>
+    <div>
+        Click to go back to <a href='http://localhost:8000/'>Home</a>
     </div>
 </html>

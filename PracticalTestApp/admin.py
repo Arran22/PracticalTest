@@ -1,3 +1,5 @@
 from django.contrib import admin
+from PracticalTestApp.models import People, Cat
 
-# Register your models here.
+admin.site.register(People)
+admin.site.register(Cat)

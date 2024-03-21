@@ -5,12 +5,18 @@ class People(models.Model):
     last_name = models.CharField(max_length=35)
     cat_num = models.IntegerField(default = 0)
 
-    def __string__(self):
-        return first_name + " " + last_name
+
+    class Meta:
+        verbose_name_plural = 'People'
+        
+    def __str__(self):
+        return self.first_name + " " + self.last_name
     
 
-class Cats(models.Model):
+class Cat(models.Model):
     cat_name = models.CharField(max_length=35)
+    owners = models.ForeignKey(People, on_delete=models.CASCADE)
 
-    def __string__(self):
+    def __str__(self):
         return self.cat_name
+    
